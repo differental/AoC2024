@@ -1,10 +1,7 @@
 use std::fs;
 
 fn parse_num(str: &str) -> i32 {
-    let numbers: Result<Vec<i32>, _> = str
-        .split(',')
-        .map(|s| s.parse::<i32>())
-        .collect();
+    let numbers: Result<Vec<i32>, _> = str.split(',').map(|s| s.parse::<i32>()).collect();
 
     return match numbers {
         Ok(val) => {
@@ -14,8 +11,8 @@ fn parse_num(str: &str) -> i32 {
             }
             0
         }
-        Err(_) => 0
-    }
+        Err(_) => 0,
+    };
 }
 
 fn main() {
@@ -27,17 +24,17 @@ fn main() {
     let mut enabled = true;
 
     for line in lines {
-        for i in 0..line.len()-4 {
-            if &line[i..i+4] == "do()" {
+        for i in 0..line.len() - 4 {
+            if &line[i..i + 4] == "do()" {
                 enabled = true;
             }
-            if i+7 < line.len() && &line[i..i+7] == "don't()" {
+            if i + 7 < line.len() && &line[i..i + 7] == "don't()" {
                 enabled = false;
             }
-            if &line[i..i+4] == "mul(" {
-                for j in i+4..line.len() {
-                    if &line[j..j+1] == ")" {
-                        let val = parse_num(&line[i+4..j]);
+            if &line[i..i + 4] == "mul(" {
+                for j in i + 4..line.len() {
+                    if &line[j..j + 1] == ")" {
+                        let val = parse_num(&line[i + 4..j]);
                         count1 += val;
                         if enabled {
                             count2 += val;

@@ -5,7 +5,7 @@ fn main() {
 
     let lines = contents.lines();
 
-    let mut count = 0; 
+    let mut count = 0;
     let mut count2 = 0;
 
     for line in lines {
@@ -81,7 +81,6 @@ fn main() {
         if flag {
             count2 += 1;
         }
-        
     }
     println!("{} {}", count, count2);
 }

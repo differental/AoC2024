@@ -10,12 +10,12 @@ fn main() {
 
     for line in lines {
         let mut numbers = line.split_whitespace().map(|s| s.parse::<i32>());
-        
+
         let a = numbers.next();
         let num1 = match a {
             None => panic!(),
             Some(Ok(val)) => val,
-            Some(Err(_)) => panic!()
+            Some(Err(_)) => panic!(),
         };
         arr.push(num1);
 
@@ -23,10 +23,9 @@ fn main() {
         let num1 = match a {
             None => panic!(),
             Some(Ok(val)) => val,
-            Some(Err(_)) => panic!()
+            Some(Err(_)) => panic!(),
         };
         arr2.push(num1);
-
     }
 
     arr.sort();
@@ -52,11 +51,10 @@ fn main() {
     for i in 0..arr.len() {
         let count = match counter.get(&arr[i]) {
             None => &0,
-            Some(val) => val
+            Some(val) => val,
         };
         sum += arr[i] * count;
     }
 
     println!("{}", sum);
-
 }
